@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dirrecion_usuarios', function (Blueprint $table) {
+        Schema::create('detalles_compras', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Usuario::class)->constrained();
-            $table->string('direccion');
-            $table->string('ciudad');
-            $table->string('codigo_postal');
-            $table->string('pais');
-            $table->double('telefono');
-            $table->timestamps();
+            $table->foreignIdFor(\App\Models\Metodo_pago::class)->constrained();
+            $table->float('total');
+            $table->date('fecha_compra');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dirrecion_usuarios');
+        Schema::dropIfExists('detalles_compras');
     }
 };

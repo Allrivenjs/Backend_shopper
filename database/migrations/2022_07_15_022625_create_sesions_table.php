@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dirrecion_usuarios', function (Blueprint $table) {
+        Schema::create('sesions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Usuario::class)->constrained();
-            $table->string('direccion');
-            $table->string('ciudad');
-            $table->string('codigo_postal');
-            $table->string('pais');
-            $table->double('telefono');
-            $table->timestamps();
+            $table->integer('total');
+            $table->date('fecha_inicio');
+            $table->date('fecha_final');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dirrecion_usuarios');
+        Schema::dropIfExists('sesions');
     }
 };

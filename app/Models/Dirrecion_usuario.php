@@ -8,20 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Dirrecion_usuario extends Model
 {
     use HasFactory;
-//    public $timestamps = false;
+    public $timestamps = false;
 
-//    protected $fillable= [
-//        'direccion',
-//        'direccion_2',
-//        'ciudad',
-//        'codigo_postal',
-//        'pais',
-//        'numero_telefono',
-//        'user_id',
-//    ];
-
-    protected $guarded = [
+    protected $fillable= [
         'id',
+        'id_usuario',
+       'direccion',
+        'ciudad',
+        'codigo_postal',
+       'pais',
+       'telefono',
+
     ];
 
 }

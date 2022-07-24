@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dirrecion_usuarios', function (Blueprint $table) {
+        Schema::create('categoria_productos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Usuario::class)->constrained();
-            $table->string('direccion');
-            $table->string('ciudad');
-            $table->string('codigo_postal');
-            $table->string('pais');
-            $table->double('telefono');
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dirrecion_usuarios');
+        Schema::dropIfExists('categoria_productos');
     }
 };
